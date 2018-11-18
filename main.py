@@ -19,6 +19,8 @@ gameSnake = snake.Snake(5)
 tileGrid = grid.Grid(math.floor(con.width / con.tileWidth),
                      math.floor(con.height / con.tileWidth), con.tileWidth)
 
+tileGrid.setFood(gameSnake)
+
 while not done:
     # Input
     inputs.update()

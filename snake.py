@@ -11,7 +11,8 @@ class Snake:
         self.tails = []
         self.dead = False
         for i in range(0, self.length):
-            self.tails.insert(i, tail.Tail(0, 0))
+            self.tails.insert(i, tail.Tail(
+                3 * con.tileWidth, 3 * con.tileWidth))
 
     def move(self, speed, grid):
         if(not speed[0] == 0 or not speed[1] == 0):
@@ -49,7 +50,11 @@ class Snake:
                 self.tails[0].y / self.tails[0].width == grid.currentFood[1]):
             self.tails.insert(self.length,
                               tail.Tail(self.tails[self.length - 1].x, self.tails[self.length - 1].y))
-            self.length += 1
+            self.tails.insert(self.length + 1,
+                              tail.Tail(self.tails[self.length - 1].x, self.tails[self.length - 1].y))
+            self.tails.insert(self.length + 2,
+                              tail.Tail(self.tails[self.length - 1].x, self.tails[self.length - 1].y))
+            self.length += 3
             grid.setFood(self)
 
     def render(self, screen):

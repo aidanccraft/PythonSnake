@@ -26,7 +26,11 @@ class Grid:
     def setFood(self, snake):
         x = random.randint(0, self.width - 1)
         y = random.randint(0, self.height - 1)
+        tryAgain = False
         for i in range(0, snake.length):
-            if(snake.tails[i].x == x and snake.tails[i].y == y):
-                self.setFood(snake)
+            if(snake.tails[i].x / snake.tails[i].width == x and snake.tails[i].y / snake.tails[i].width == y):
+                tryAgain = True
+                print("Invalid Food Placement!")
         self.currentFood = [x, y]
+        if(tryAgain):
+            self.setFood(snake)
