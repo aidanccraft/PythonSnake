@@ -9,7 +9,7 @@ pygame.init()
 
 size = (con.width, con.height)
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption("Graphics Test")
+pygame.display.set_caption("Snake Game")
 done = False
 speed = [0, 0]
 
